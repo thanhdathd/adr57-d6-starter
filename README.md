@@ -1,4 +1,5 @@
-# Các Task cần thực hiện
+# Các Task có thể thực hiện
+#### có thể chọn một trong số các task bên dưới
 
 ### 1. Activity → Activity với Intent
  - Truyền user data từ MainActivity sang SecondActivity
@@ -15,7 +16,7 @@
 ### 4. Activity → Fragment với Arguments
  - Truyền dữ liệu từ SecondActivity sang SettingsFragment
 
-### 5. Fragment → Fragment với Interface
+### 5. Fragment → Fragment với Interface (solved)
 
  - Tạo interface để UserListFragment giao tiếp với Activity
  - Activity chuyển tiếp dữ liệu sang UserDetailFragment

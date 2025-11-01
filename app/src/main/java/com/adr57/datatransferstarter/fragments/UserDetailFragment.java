@@ -49,4 +49,12 @@ public class UserDetailFragment extends Fragment {
             // Sử dụng: ViewModel hoặc Fragment Result API
         });
     }
+
+    public void onUserReceived(User user) {
+        if ( user != null) {
+            tvName.setText(user.getName());
+            tvEmail.setText(user.getEmail());
+            tvAge.setText(String.valueOf(user.getAge()));
+        }
+    }
 }

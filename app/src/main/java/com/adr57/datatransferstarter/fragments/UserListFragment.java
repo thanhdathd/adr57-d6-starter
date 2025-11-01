@@ -1,16 +1,20 @@
 package com.adr57.datatransferstarter.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.adr57.datatransferstarter.R;
+import com.adr57.datatransferstarter.interfaces.FragmentCommunication;
 import com.adr57.datatransferstarter.model.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,7 @@ public class UserListFragment extends Fragment {
     private Button btnUseInterface, btnUseViewModel, btnUseResultApi;
 
     // TODO: Khai báo Interface cho Fragment communication
+    private FragmentCommunication communication;
     // TODO: Khai báo ViewModel nếu sử dụng
     // TODO: Khai báo FragmentResultListener nếu sử dụng
 
@@ -118,10 +123,13 @@ public class UserListFragment extends Fragment {
 
     private void handleUserItemClick(User user) {
         // TODO: IMPLEMENT PHẦN NÀY - Chọn 1 trong 3 phương pháp
-
+        Log.i("user_list:", "handleUserItemClick:  "+user.getName());
         switch (currentMethod) {
             case "Interface":
                 // TODO: Gửi user data sang UserDetailFragment qua Interface
+                if(communication != null) {
+                    communication.onUserSelected(user);
+                }
                 break;
             case "ViewModel":
                 // TODO: Gửi user data sang UserDetailFragment qua ViewModel
@@ -155,12 +163,24 @@ public class UserListFragment extends Fragment {
         }
     }
 
-    // TODO: Khai báo Interface cho communication với Activity
+    // TODO: Khai báo Interface cho communication với Activity, hoặc có thể khai báo interface ra một file riêng
     // public interface OnUserSelectedListener {
     //     void onUserSelected(User user);
     // }
 
     // TODO: Override onAttach và thiết lập listener nếu sử dụng Interface
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof FragmentCommunication) {
+            communication = (FragmentCommunication) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement FragmentCommunication");
+        }
+    }
+
 
     // TODO: Thiết lập ViewModel nếu sử dụng
 

@@ -1,10 +1,13 @@
 package com.adr57.datatransferstarter.fragments;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.adr57.datatransferstarter.R;
 import com.adr57.datatransferstarter.model.User;
@@ -38,13 +41,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = userList.get(position);
-        holder.bind(user);
-
-        holder.itemView.setOnClickListener(v -> {
-            if (onItemClickListener != null) {
-                onItemClickListener.onItemClick(user);
-            }
-        });
+        holder.bind(user, onItemClickListener);
     }
 
     @Override
@@ -54,6 +51,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     public static class UserViewHolder extends RecyclerView.ViewHolder {
         private TextView tvAvatar, tvUserName, tvUserEmail, tvUserAge;
+        private CardView cardUser;
+        LinearLayout llRoot;
+
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,9 +61,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             tvUserName = itemView.findViewById(R.id.tv_user_name);
             tvUserEmail = itemView.findViewById(R.id.tv_user_email);
             tvUserAge = itemView.findViewById(R.id.tv_user_age);
+            cardUser = itemView.findViewById(R.id.card_user);
+            llRoot = itemView.findViewById(R.id.llRoot);
         }
 
-        public void bind(User user) {
+        public void bind(final User user, final OnItemClickListener listener) {
             // Set avatar text (first letter of name)
             if (user.getName() != null && !user.getName().isEmpty()) {
                 tvAvatar.setText(String.valueOf(user.getName().charAt(0)));
@@ -72,6 +74,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             tvUserName.setText(user.getName());
             tvUserEmail.setText(user.getEmail());
             tvUserAge.setText("Age: " + user.getAge());
+
+            llRoot.setOnClickListener(v -> {
+                Log.i("list_user", "click ok ");
+                if (listener != null) {
+                    listener.onItemClick(user);
+                }
+            });
         }
     }
 }
