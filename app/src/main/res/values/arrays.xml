@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="language_options">
+        <item>English</item>
+        <item>Vietnamese</item>
+        <item>Spanish</item>
+        <item>French</item>
+        <item>Japanese</item>
+    </array>
+
+    <array name="sync_frequency_options">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>4 hours</item>
+        <item>12 hours</item>
+        <item>1 day</item>
+    </array>
+</resources>

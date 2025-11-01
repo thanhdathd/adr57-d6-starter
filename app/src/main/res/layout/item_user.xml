@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- User Avatar -->
+        <TextView
+            android:id="@+id/tv_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="U"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/circle_background"
+            android:textColor="@color/white"
+            android:layout_marginEnd="16dp" />
+
+        <!-- User Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_user_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="user@example.com"
+                android:textSize="12sp"
+                android:textColor="@color/gray"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tv_user_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Age: 0"
+                android:textSize="12sp"
+                android:textColor="@color/gray"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+        <!-- Click Indicator -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_media_next"
+            app:tint="@color/gray" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
