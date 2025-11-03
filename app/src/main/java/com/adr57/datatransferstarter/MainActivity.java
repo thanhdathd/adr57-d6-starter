@@ -3,8 +3,10 @@ package com.adr57.datatransferstarter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -62,6 +64,11 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
         findViewById(R.id.btn_open_profile).setOnClickListener(v -> {
             // TODO: Mở ProfileActivity với startActivityForResult
             // Expect result: updated user name
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtra("userName", "2 Nguyen Huu Nguyen");
+            intent.putExtra("userEmail", "2 nhn322004@gmail.com");
+            intent.putExtra("age", 21);
+            startActivityForResult(intent, REQUEST_CODE_PROFILE);
         });
 
         findViewById(R.id.btn_launch_with_contract).setOnClickListener(v -> {
@@ -95,6 +102,20 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
     }
 
     // TODO: Implement onActivityResult để xử lý kết quả từ ProfileActivity
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_PROFILE && resultCode == RESULT_OK){
+            if (data!=null){
+                String result = data.getStringExtra("responseMessage");
+
+                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 
     // TODO: Tạo ActivityResultLauncher cho SecondActivity
 }

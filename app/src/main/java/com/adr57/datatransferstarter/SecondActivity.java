@@ -27,11 +27,15 @@ public class SecondActivity extends AppCompatActivity {
         String userEmail = intent.getStringExtra("userEmail");
         int age = intent.getIntExtra("age", 0);
         // và hiển thị lên TextView
+        showToTextView(userName, userEmail, age);
+
+        setupClickListeners();
+    }
+
+    private void showToTextView(String userName, String userEmail, int age){
         tv_received_name.setText(userName);
         tv_received_email.setText(userEmail);
         tv_received_age.setText(String.valueOf(age));
-
-        setupClickListeners();
     }
 
     private void mapping(){
@@ -44,10 +48,18 @@ public class SecondActivity extends AppCompatActivity {
         findViewById(R.id.btn_send_back).setOnClickListener(v -> {
             // TODO: Gửi dữ liệu trở lại MainActivity
             // Sử dụng setResult và finish()
+            Intent intent = new Intent();
+            intent.putExtra("responseMessage", "Updated Complete!");
+            setResult(RESULT_OK, intent);
+            finish();
         });
 
         findViewById(R.id.btn_open_settings_fragment).setOnClickListener(v -> {
             // TODO: Mở SettingsFragment và truyền dữ liệu qua Arguments
+        });
+
+        findViewById(R.id.btn_send_back_cancel).setOnClickListener(v ->{
+            finish();
         });
     }
 
