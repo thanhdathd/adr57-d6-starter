@@ -1,5 +1,6 @@
 package com.adr57.datatransferstarter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -51,6 +52,11 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
         findViewById(R.id.btn_go_to_second).setOnClickListener(v -> {
             // TODO: Chuyển sang SecondActivity và truyền dữ liệu qua Intent
             // Truyền: userName, userEmail, age
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtra("userName", "John Doe");
+            intent.putExtra("userEmail", "johndoe@email.com");
+            intent.putExtra("age", 20);
+            startActivity(intent);
         });
 
         findViewById(R.id.btn_open_profile).setOnClickListener(v -> {

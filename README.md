@@ -1,7 +1,7 @@
 # Các Task có thể thực hiện
 #### có thể chọn một trong số các task bên dưới
 
-### 1. Activity → Activity với Intent
+### 1. Activity → Activity với Intent (solved)
  - Truyền user data từ MainActivity sang SecondActivity
  - Nhận và hiển thị dữ liệu trong SecondActivity
 

@@ -1,6 +1,8 @@
 package com.adr57.datatransferstarter;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,18 @@ public class SecondActivity extends AppCompatActivity {
 
         // TODO: Nhận dữ liệu từ MainActivity qua Intent
         // và hiển thị lên TextView
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("userName");
+        String email = intent.getStringExtra("userEmail");
+        int age = intent.getIntExtra("age", 0);
+
+        TextView tv_received_name = findViewById(R.id.tv_received_name);
+        TextView tv_received_email = findViewById(R.id.tv_received_email);
+        TextView tv_received_age = findViewById(R.id.tv_received_age);
+
+        tv_received_name.setText(name);
+        tv_received_email.setText(email);
+        tv_received_age.setText(String.valueOf(age));
 
         setupClickListeners();
     }
