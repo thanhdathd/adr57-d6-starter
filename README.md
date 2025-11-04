@@ -10,7 +10,7 @@
 - Mở ProfileActivity và nhận kết quả trả về
 - Xử lý kết quả trong onActivityResult
 
-### 3. Activity → Activity với ActivityResultLauncher
+### 3. Activity → Activity với ActivityResultLauncher (solved)
 
  - Đăng ký contract và xử lý kết quả
 ### 4. Activity → Fragment với Arguments

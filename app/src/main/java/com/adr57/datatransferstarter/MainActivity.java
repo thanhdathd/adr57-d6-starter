@@ -3,14 +3,19 @@ package com.adr57.datatransferstarter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.adr57.datatransferstarter.fragments.UserAdapter;
 import com.adr57.datatransferstarter.fragments.UserDetailFragment;
 import com.adr57.datatransferstarter.fragments.UserListFragment;
 import com.adr57.datatransferstarter.interfaces.FragmentCommunication;
@@ -18,6 +23,8 @@ import com.adr57.datatransferstarter.model.User;
 
 public class MainActivity extends AppCompatActivity implements FragmentCommunication{
     private static final int REQUEST_CODE_PROFILE = 100;
+
+    private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,31 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        activityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK) {
+                        Intent data = result.getData();
+                        if (data != null) {
+                            String response_message = data.getStringExtra("response_message");
+                            float rating = data.getFloatExtra("rating", 0.0f);
+
+                            String toastString = "Rated " + rating + " stars";
+                            if (response_message != null && !response_message.isEmpty()) {
+                                toastString += " with message: " + response_message;
+                            }
+
+                            Log.d("MainActivity", "Response message: " + response_message);
+                            Log.d("MainActivity", "Rating: " + rating);
+                            Toast.makeText(this, toastString,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
 
         setupFragments();
         setupClickListeners();
@@ -67,6 +99,9 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
         findViewById(R.id.btn_launch_with_contract).setOnClickListener(v -> {
             // TODO: Sử dụng ActivityResultLauncher để mở SecondActivity
             // và nhận kết quả trả về
+
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            activityResultLauncher.launch(intent);
         });
     }
 
