@@ -5,7 +5,7 @@
  - Truyền user data từ MainActivity sang SecondActivity
  - Nhận và hiển thị dữ liệu trong SecondActivity
 
-### 2. Activity → Activity với startActivityForResult
+### 2. Activity → Activity với startActivityForResult (solved)
 
 - Mở ProfileActivity và nhận kết quả trả về
 - Xử lý kết quả trong onActivityResult

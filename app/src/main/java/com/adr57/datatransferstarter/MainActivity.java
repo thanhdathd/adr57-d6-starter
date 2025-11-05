@@ -94,6 +94,9 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
         findViewById(R.id.btn_open_profile).setOnClickListener(v -> {
             // TODO: Mở ProfileActivity với startActivityForResult
             // Expect result: updated user name
+
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_PROFILE);
         });
 
         findViewById(R.id.btn_launch_with_contract).setOnClickListener(v -> {
@@ -130,6 +133,29 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
     }
 
     // TODO: Implement onActivityResult để xử lý kết quả từ ProfileActivity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_CODE_PROFILE && resultCode == RESULT_OK){
+            if (data != null) {
+                String response_message = data.getStringExtra("response_message");
+                float rating = data.getFloatExtra("rating", 0.0f);
+
+                String toastString = "Rated " + rating + " stars";
+                if (response_message != null && !response_message.isEmpty()) {
+                    toastString += " with message: " + response_message;
+                }
+
+                Log.d("MainActivity", "Response message: " + response_message);
+                Log.d("MainActivity", "Rating: " + rating);
+                Toast.makeText(this, toastString,
+                        Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     // TODO: Tạo ActivityResultLauncher cho SecondActivity
 }
