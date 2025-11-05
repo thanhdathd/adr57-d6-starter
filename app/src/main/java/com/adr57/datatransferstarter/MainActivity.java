@@ -6,6 +6,10 @@ import android.os.Handler;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -65,15 +69,20 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
             // TODO: Mở ProfileActivity với startActivityForResult
             // Expect result: updated user name
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-            intent.putExtra("userName", "2 Nguyen Huu Nguyen");
-            intent.putExtra("userEmail", "2 nhn322004@gmail.com");
-            intent.putExtra("age", 21);
+            intent.putExtra("userName", "Nguyen Quy Than");
+            intent.putExtra("userEmail", "than04@gmail.com");
+            intent.putExtra("age", 20);
             startActivityForResult(intent, REQUEST_CODE_PROFILE);
         });
 
         findViewById(R.id.btn_launch_with_contract).setOnClickListener(v -> {
             // TODO: Sử dụng ActivityResultLauncher để mở SecondActivity
             // và nhận kết quả trả về
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtra("userName", "Nguyen Manh Dat");
+            intent.putExtra("userEmail", "dat131204@gmail.com");
+            intent.putExtra("age", 21);
+            activityResultLauncher.launch(intent);
         });
     }
 
@@ -102,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
     }
 
     // TODO: Implement onActivityResult để xử lý kết quả từ ProfileActivity
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -118,4 +126,22 @@ public class MainActivity extends AppCompatActivity implements FragmentCommunica
 
 
     // TODO: Tạo ActivityResultLauncher cho SecondActivity
+    private final ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult o) {
+                    if (o.getResultCode() == RESULT_OK){
+                        Intent data = o.getData();
+                        if (data != null){
+                            String result = data.getStringExtra("responseMessage");
+                            Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this, "No data", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }
+    );
 }

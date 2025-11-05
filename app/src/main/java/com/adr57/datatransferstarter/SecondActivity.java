@@ -28,7 +28,6 @@ public class SecondActivity extends AppCompatActivity {
         int age = intent.getIntExtra("age", 0);
         // và hiển thị lên TextView
         showToTextView(userName, userEmail, age);
-
         setupClickListeners();
     }
 
@@ -56,6 +55,7 @@ public class SecondActivity extends AppCompatActivity {
 
         findViewById(R.id.btn_open_settings_fragment).setOnClickListener(v -> {
             // TODO: Mở SettingsFragment và truyền dữ liệu qua Arguments
+
         });
 
         findViewById(R.id.btn_send_back_cancel).setOnClickListener(v ->{
