@@ -1,375 +1,379 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:id="@+id/main"
     android:padding="16dp"
     android:background="@color/light_background"
     tools:context=".SecondActivity">
 
-    <!-- Header Section -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Second Activity"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="24dp"
-        android:background="@color/secondary_color"
-        android:padding="16dp"
-        android:textColor="@color/white" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+       <!-- Header Section -->
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Second Activity"
+           android:textSize="24sp"
+           android:textStyle="bold"
+           android:gravity="center"
+           android:layout_marginBottom="24dp"
+           android:background="@color/secondary_color"
+           android:padding="16dp"
+           android:textColor="@color/white" />
 
-    <!-- Received Data Card -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="6dp"
-        android:layout_marginBottom="24dp">
+       <!-- Received Data Card -->
+       <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:cardCornerRadius="12dp"
+           app:cardElevation="6dp"
+           android:layout_marginBottom="24dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:background="@color/light_blue_light">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:padding="20dp"
+               android:background="@color/light_blue_light">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Data Received from MainActivity"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"
-                android:textColor="@color/secondary_color" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Data Received from MainActivity"
+                   android:textSize="18sp"
+                   android:textStyle="bold"
+                   android:gravity="center"
+                   android:layout_marginBottom="16dp"
+                   android:textColor="@color/secondary_color" />
 
-            <!-- User Name -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
+               <!-- User Name -->
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:layout_marginBottom="12dp">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="User Name:"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:text="User Name:"
+                       android:textStyle="bold"
+                       android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/tv_received_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Not received"
-                    android:textSize="16sp"
-                    android:textColor="@color/dark_gray"
-                    android:background="@color/light_gray"
-                    android:padding="12dp"
-                    android:gravity="center" />
+                   <TextView
+                       android:id="@+id/tv_received_name"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="2"
+                       android:text="Not received"
+                       android:textSize="16sp"
+                       android:textColor="@color/dark_gray"
+                       android:background="@color/light_gray"
+                       android:padding="12dp"
+                       android:gravity="center" />
 
-            </LinearLayout>
+               </LinearLayout>
 
-            <!-- User Email -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
+               <!-- User Email -->
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:layout_marginBottom="12dp">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="User Email:"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:text="User Email:"
+                       android:textStyle="bold"
+                       android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/tv_received_email"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Not received"
-                    android:textSize="16sp"
-                    android:textColor="@color/dark_gray"
-                    android:background="@color/light_gray"
-                    android:padding="12dp"
-                    android:gravity="center" />
+                   <TextView
+                       android:id="@+id/tv_received_email"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="2"
+                       android:text="Not received"
+                       android:textSize="16sp"
+                       android:textColor="@color/dark_gray"
+                       android:background="@color/light_gray"
+                       android:padding="12dp"
+                       android:gravity="center" />
 
-            </LinearLayout>
+               </LinearLayout>
 
-            <!-- User Age -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
+               <!-- User Age -->
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="User Age:"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:text="User Age:"
+                       android:textStyle="bold"
+                       android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/tv_received_age"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Not received"
-                    android:textSize="16sp"
-                    android:textColor="@color/dark_gray"
-                    android:background="@color/light_gray"
-                    android:padding="12dp"
-                    android:gravity="center" />
+                   <TextView
+                       android:id="@+id/tv_received_age"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="2"
+                       android:text="Not received"
+                       android:textSize="16sp"
+                       android:textColor="@color/dark_gray"
+                       android:background="@color/light_gray"
+                       android:padding="12dp"
+                       android:gravity="center" />
 
-            </LinearLayout>
+               </LinearLayout>
 
-            <!-- Data Transfer Method Info -->
-            <TextView
-                android:id="@+id/tv_transfer_method"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Transfer Method: Intent with putExtra"
-                android:textSize="12sp"
-                android:textStyle="italic"
-                android:gravity="center"
-                android:background="@color/light_yellow"
-                android:padding="8dp"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/dark_gray" />
+               <!-- Data Transfer Method Info -->
+               <TextView
+                   android:id="@+id/tv_transfer_method"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Transfer Method: Intent with putExtra"
+                   android:textSize="12sp"
+                   android:textStyle="italic"
+                   android:gravity="center"
+                   android:background="@color/light_yellow"
+                   android:padding="8dp"
+                   android:layout_marginTop="8dp"
+                   android:textColor="@color/dark_gray" />
 
-        </LinearLayout>
+           </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+       </androidx.cardview.widget.CardView>
 
-    <!-- Send Data Back Section -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="6dp"
-        android:layout_marginBottom="24dp">
+       <!-- Send Data Back Section -->
+       <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:cardCornerRadius="12dp"
+           app:cardElevation="6dp"
+           android:layout_marginBottom="24dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:padding="20dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Send Data Back to MainActivity"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"
-                android:textColor="@color/secondary_color" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Send Data Back to MainActivity"
+                   android:textSize="18sp"
+                   android:textStyle="bold"
+                   android:gravity="center"
+                   android:layout_marginBottom="16dp"
+                   android:textColor="@color/secondary_color" />
 
-            <!-- Response Message Input -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:hintEnabled="true"
-                app:hintAnimationEnabled="true">
+               <!-- Response Message Input -->
+               <com.google.android.material.textfield.TextInputLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginBottom="16dp"
+                   app:hintEnabled="true"
+                   app:hintAnimationEnabled="true">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_response_message"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter response message"
-                    android:inputType="textMultiLine"
-                    android:minLines="3"
-                    android:gravity="top" />
+                   <com.google.android.material.textfield.TextInputEditText
+                       android:id="@+id/et_response_message"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:gravity="top"
+                       android:hint="Enter response message"
+                       android:inputType="textMultiLine"
+                       android:minLines="3" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+               </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Rating Selection -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Rate this experience:"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+               <!-- Rating Selection -->
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Rate this experience:"
+                   android:textSize="16sp"
+                   android:textStyle="bold"
+                   android:layout_marginBottom="8dp" />
 
-            <RatingBar
-                android:id="@+id/rating_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:numStars="5"
-                android:stepSize="1"
-                android:rating="3"
-                android:layout_marginBottom="20px" />
+               <RatingBar
+                   android:id="@+id/rating_bar"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:numStars="5"
+                   android:stepSize="1"
+                   android:rating="3"
+                   android:layout_marginBottom="20px" />
 
-            <!-- Send Back Buttons -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+               <!-- Send Back Buttons -->
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:gravity="center">
 
-                <Button
-                    android:id="@+id/btn_send_back"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Send Result Back"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:backgroundTint="@color/success_color"
-                    android:textColor="@color/white"
-                    android:padding="12dp"
-                    android:layout_marginEnd="8dp" />
+                   <Button
+                       android:id="@+id/btn_send_back"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:text="Send Result Back"
+                       android:textSize="16sp"
+                       android:textStyle="bold"
+                       android:backgroundTint="@color/success_color"
+                       android:textColor="@color/white"
+                       android:padding="12dp"
+                       android:layout_marginEnd="8dp" />
 
-                <Button
-                    android:id="@+id/btn_send_back_cancel"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cancel"
-                    android:textSize="16sp"
-                    android:backgroundTint="@color/cancel_button_color"
-                    android:textColor="@color/white"
-                    android:padding="12dp"
-                    android:layout_marginStart="8dp" />
+                   <Button
+                       android:id="@+id/btn_send_back_cancel"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:text="Cancel"
+                       android:textSize="16sp"
+                       android:backgroundTint="@color/cancel_button_color"
+                       android:textColor="@color/white"
+                       android:padding="12dp"
+                       android:layout_marginStart="8dp" />
 
-            </LinearLayout>
+               </LinearLayout>
 
-        </LinearLayout>
+           </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+       </androidx.cardview.widget.CardView>
 
-    <!-- Fragment Section -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="6dp"
-        android:layout_marginBottom="24dp">
+       <!-- Fragment Section -->
+       <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:cardCornerRadius="12dp"
+           app:cardElevation="6dp"
+           android:layout_marginBottom="24dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:background="@color/light_green_light">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:padding="20dp"
+               android:background="@color/light_green_light">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Activity to Fragment Data Transfer"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"
-                android:textColor="@color/secondary_color" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Activity to Fragment Data Transfer"
+                   android:textSize="18sp"
+                   android:textStyle="bold"
+                   android:gravity="center"
+                   android:layout_marginBottom="16dp"
+                   android:textColor="@color/secondary_color" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Open SettingsFragment and pass data via Bundle/Arguments"
-                android:textSize="14sp"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"
-                android:textColor="@color/dark_gray" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Open SettingsFragment and pass data via Bundle/Arguments"
+                   android:textSize="14sp"
+                   android:gravity="center"
+                   android:layout_marginBottom="16dp"
+                   android:textColor="@color/dark_gray" />
 
-            <Button
-                android:id="@+id/btn_open_settings_fragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Open Settings Fragment"
-                android:textSize="16sp"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/fragment_button_color"
-                android:textColor="@color/white"
-                android:padding="12dp" />
+               <Button
+                   android:id="@+id/btn_open_settings_fragment"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Open Settings Fragment"
+                   android:textSize="16sp"
+                   android:layout_gravity="center"
+                   android:backgroundTint="@color/fragment_button_color"
+                   android:textColor="@color/white"
+                   android:padding="12dp" />
 
-        </LinearLayout>
+           </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+       </androidx.cardview.widget.CardView>
 
-    <!-- Settings Fragment Container -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Settings Fragment will appear below:"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+       <!-- Settings Fragment Container -->
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Settings Fragment will appear below:"
+           android:textSize="14sp"
+           android:textStyle="bold"
+           android:layout_marginBottom="8dp" />
 
-    <FrameLayout
-        android:id="@+id/fragment_container_second"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/light_gray"
-        android:padding="8dp" />
+       <FrameLayout
+           android:id="@+id/fragment_container_second"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@color/light_gray"
+           android:padding="8dp" />
 
-    <!-- Practice Instructions -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="6dp">
+       <!-- Practice Instructions -->
+       <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:cardCornerRadius="12dp"
+           app:cardElevation="6dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:background="@color/light_purple_light">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:padding="20dp"
+               android:background="@color/light_purple_light">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Practice Instructions"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="12dp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Practice Instructions"
+                   android:textSize="16sp"
+                   android:textStyle="bold"
+                   android:gravity="center"
+                   android:layout_marginBottom="12dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1. Receive data from MainActivity via Intent"
-                android:textSize="12sp"
-                android:layout_marginBottom="4dp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="1. Receive data from MainActivity via Intent"
+                   android:textSize="12sp"
+                   android:layout_marginBottom="4dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2. Send data back using setResult()"
-                android:textSize="12sp"
-                android:layout_marginBottom="4dp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="2. Send data back using setResult()"
+                   android:textSize="12sp"
+                   android:layout_marginBottom="4dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="3. Pass data to SettingsFragment via Arguments"
-                android:textSize="12sp"
-                android:layout_marginBottom="4dp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="3. Pass data to SettingsFragment via Arguments"
+                   android:textSize="12sp"
+                   android:layout_marginBottom="4dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="4. Handle fragment communication back to Activity"
-                android:textSize="12sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="4. Handle fragment communication back to Activity"
+                   android:textSize="12sp" />
 
-        </LinearLayout>
+           </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+       </androidx.cardview.widget.CardView>
+   </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

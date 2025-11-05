@@ -9,6 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentManager;
+
+import com.adr57.datatransferstarter.fragments.SettingsFragment;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Objects;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -48,13 +54,25 @@ public class SecondActivity extends AppCompatActivity {
             // TODO: Gửi dữ liệu trở lại MainActivity
             // Sử dụng setResult và finish()
             Intent intent = new Intent();
-            intent.putExtra("responseMessage", "Updated Complete!");
+            TextInputEditText textInputEditText = findViewById(R.id.et_response_message);
+            String messageResponse = Objects.requireNonNull(textInputEditText.getText()).toString();
+            intent.putExtra("responseMessage", messageResponse);
             setResult(RESULT_OK, intent);
             finish();
         });
 
         findViewById(R.id.btn_open_settings_fragment).setOnClickListener(v -> {
             // TODO: Mở SettingsFragment và truyền dữ liệu qua Arguments
+            SettingsFragment settingsFragment = new SettingsFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("THEME", "Light");
+            bundle.putBoolean("NOTIFICATIONS", true);
+            settingsFragment.setArguments(bundle);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container_second, settingsFragment)
+                    .addToBackStack(null)
+                    .commit();
 
         });
 
